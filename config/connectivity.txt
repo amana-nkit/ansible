@@ -1,0 +1,5 @@
+ansible all -m ping (with user configured ssh key)
+ansible all -m ping -u aman -k
+
+Error - "msg": "to use the 'ssh' connection type with passwords, you must install the sshpass program"
+apt-get install sshpass

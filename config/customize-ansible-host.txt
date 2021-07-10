@@ -1,11 +1,77 @@
-aman@AZ-VM002:~$ ansible --version
+aman@AZ-VM001:~$ ansible --version
 ansible 2.9.6
   config file = /etc/ansible/ansible.cfg
   configured module search path = ['/home/aman/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/lib/python3/dist-packages/ansible
   executable location = /usr/bin/ansible
   python version = 3.8.5 (default, May 27 2021, 13:30:53) [GCC 9.3.0]
-aman@AZ-VM002:/etc/ansible$ ls
+aman@AZ-VM001:/etc/ansible$ ls
 ansible.cfg  hosts
+root@AZ-VM001:~# mkdir amanworks
+root@AZ-VM001:~# ls
+aankit  aman  amanproject  amanworks  snap
+root@AZ-VM001:~# cd amanworks
+root@AZ-VM001:~# mkdir amaninventory
+root@AZ-VM001:~/amanworks# ls
+amaninventory  ansible.cfg
+root@AZ-VM001:~/amanworks# vi amaninventory
+root@AZ-VM001:~/amanworks# cat amaninventory
+40.76.26.4 ansible_ssh_user=aman ansible_ssh_pass=aman@1234567
+52.168.48.44 ansible_ssh_user=aman ansible_ssh_pass=aman@1234567
+
+[app]
+40.76.26.4
+52.168.48.44
+root@AZ-VM001:~/amanworks# rm /etc/ansible/hosts
+root@AZ-VM001:~/amanworks# ansible all -m ping -u aman -k
+SSH password:
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+root@AZ-VM001:~/amanworks# ansible all -i amaninventory -m ping -u aman -k
+SSH password:
+52.168.48.44 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+40.76.26.4 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+root@AZ-VM001:~/amanworks# cp /etc/ansible/ansible.cfg
+root@AZ-VM001:~/amanworks# ansible --version
+ansible 2.9.6
+  config file = /root/amanworks/ansible.cfg
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
+
+root@AZ-VM001:~/amanworks# vi ansible.cfg [update the config file with inventory location]
+# some basic default values...
+
+#inventory      = /root/amanworks/amaninventoy/
+#library        = /usr/share/my_modules/
+#module_utils   = /usr/share/my_module_utils/
+#remote_tmp     = ~/.ansible/tmp
+#local_tmp      = ~/.ansible/tmp
+#plugin_filters_cfg = /etc/ansible/plugin_filters.yml
+#forks          = 5
+#poll_interval  = 15
+#sudo_user      = root
+#ask_sudo_pass = True
+#ask_pass      = True
+#transport      = smart
+#remote_port    = 22
+#module_lang    = C
+#module_set_locale = False
+
+
+
 
 

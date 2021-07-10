@@ -8,3 +8,19 @@ To limit the test:-
 ******************
 
 root@AZ-VM001:~/amanworks# ansible all -m ping -l 52.168.48.44
+
+aman@AZ-VM002:~$ ansible all -m ping
+52.168.48.44 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+40.87.30.50 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}

@@ -3,3 +3,8 @@ ansible all -m ping -u aman -k
 
 Error - "msg": "to use the 'ssh' connection type with passwords, you must install the sshpass program"
 apt-get install sshpass
+
+To limit the test:-
+******************
+
+root@AZ-VM001:~/amanworks# ansible all -m ping -l 52.168.48.44

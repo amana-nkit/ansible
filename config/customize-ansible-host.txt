@@ -1,25 +1,11 @@
+aman@AZ-VM002:~$ ansible --version
+ansible 2.9.6
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/aman/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.8.5 (default, May 27 2021, 13:30:53) [GCC 9.3.0]
+aman@AZ-VM002:/etc/ansible$ ls
+ansible.cfg  hosts
 
-root@AZ-VM001:~# mkdir amanworks
-root@AZ-VM001:~# cd amanworks/
-root@AZ-VM001:~/amanworks# vi amaninventory
-root@AZ-VM001:~/amanworks# vi amaninventory
-root@AZ-VM001:~/amanworks# rm /etc/ansible/hosts
-root@AZ-VM001:~/amanworks# ansible all -m ping -u aman -k
-SSH password:
-[WARNING]: No inventory was parsed, only implicit localhost is available
-[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
-root@AZ-VM001:~/amanworks# ansible all -i amaninventory  -m ping -u aman -k
-SSH password:
-52.168.48.44 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-40.76.26.4 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
+

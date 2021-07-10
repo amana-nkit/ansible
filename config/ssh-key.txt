@@ -11,3 +11,28 @@ cd /etc/ansible  -- change host file
 
 # uncomment this to disable SSH key host checking (Change in config file)
 host_key_checking = False
+
+
+aman@AZ-VM002:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/aman/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/aman/.ssh/id_rsa
+Your public key has been saved in /home/aman/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:v5l+EWwqXk/pvW8qo3UnhJQN1WBWsa3BZU3oZ6XTkOU aman@AZ-VM002
+aman@AZ-VM002:~$ ssh-copy-id 40.87.30.50
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/aman/.ssh/id_rsa.pub"
+The authenticity of host '40.87.30.50 (40.87.30.50)' can't be established.
+ECDSA key fingerprint is SHA256:Q25yrqoBp1d8hGY016FwlAofzaolLxf5PecgxfPhso0.
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+The authenticity of host '40.87.30.50 (40.87.30.50)' can't be established.
+ECDSA key fingerprint is SHA256:Q25yrqoBp1d8hGY016FwlAofzaolLxf5PecgxfPhso0.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+aman@40.87.30.50's password:
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh '40.87.30.50'"
+and check to make sure that only the key(s) you wanted were added.

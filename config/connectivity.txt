@@ -1,3 +1,8 @@
+Two types of authentication used:-
+1) switch to user ( su - naresh )
+2) run "ssh-keygen" command as user ( this will genereate ssh keys for the user ) 
+
+
 ansible all -m ping (with user configured ssh key)
 ansible all -m ping -u aman -k
 

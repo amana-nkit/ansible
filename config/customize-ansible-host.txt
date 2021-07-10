@@ -73,8 +73,8 @@ root@AZ-VM001:~/amanworks# vi ansible.cfg [update the config file with inventory
 
 Ansible config files can be placed in 4 locations:
 1. default - /etc/ansible/ansible.cfg
-2. User home directory (Recommended)
-3. Current directory
+2. User home directory 
+3. Current directory (Recommended)
 4. Env variable 
 
 

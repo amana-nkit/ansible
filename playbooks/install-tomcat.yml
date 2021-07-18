@@ -76,3 +76,6 @@
 
    - debug:
        var: tstatus.stdout_lines
+   - name: deploy a war file
+       copy: root/sample/sampleapp.war
+       dest: /opt/tomcat/webapps

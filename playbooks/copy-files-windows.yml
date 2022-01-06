@@ -1,0 +1,19 @@
+---
+ - name: download and copy dashboard files to windows servers
+   hosts: winserver # Update as per host file
+   become: true
+   tasks:
+     - name: execute shell script to download nexus file
+       shell: touch /tmp/scripts/mswindash.sh #update script file name and location as required
+     - name: Copy ansible inventory file to all hostmachines
+       copy: src=/home/dashboard/1.0.0.55_vendor  # Update the location as required
+             dest=F:\dashboard\1.0.0.55_vendor # Update the windows drive location as required
+             owner=root
+             group=root
+             mode=0666
+...
+
+# Shell script download and unzip file from nexus to folder dashboard
+
+wget -P Dashboard/ https://github.com/lerndevops/labs/blob/master/ansible/testfile.zip
+unzip testfile.zip
